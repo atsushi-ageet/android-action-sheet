@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/text"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/actionsheet_item_height"
+    android:backgroundTint="@color/actionsheet_bg_tint"
+    android:backgroundTintMode="src_over"
+    android:textSize="@dimen/actionsheet_item_text_size"
+    android:textColor="@color/actionsheet_text_color"
+    android:gravity="center"
+    android:textAlignment="center"
+    tools:text="Item" />

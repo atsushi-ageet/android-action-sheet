@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/actionsheet_content"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="8dp"
+    android:layout_gravity="bottom">
+
+    <LinearLayout
+        android:id="@+id/actionsheet_items_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:background="@drawable/actionsheet_bg_items_container"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/actionsheet_cancel">
+
+        <TextView
+            android:id="@+id/actionsheet_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actionsheet_title_height"
+            android:textSize="@dimen/actionsheet_title_text_size"
+            android:gravity="center"
+            android:textAlignment="center"
+            tools:text="Menu" />
+
+        <View
+            android:id="@+id/actionsheet_title_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@drawable/actionsheet_divider" />
+
+        <ListView
+            android:id="@+id/actionsheet_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="always"
+            android:divider="@drawable/actionsheet_divider"
+            android:listSelector="@android:color/transparent" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/actionsheet_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionsheet_item_height"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/actionsheet_bg_cancel"
+        android:backgroundTintMode="src_over"
+        android:backgroundTint="@color/actionsheet_bg_tint"
+        android:textSize="@dimen/actionsheet_item_text_size"
+        android:textColor="@color/actionsheet_text_color"
+        android:gravity="center"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="Cancel" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
