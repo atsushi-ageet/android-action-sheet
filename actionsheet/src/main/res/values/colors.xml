@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="actionsheet_divider">#BBB</color>
-    <color name="actionsheet_text_color">#5792DE</color>
+    <color name="actionsheet_action_text_color">#5792DE</color>
     <color name="actionsheet_bg_content">#EEE</color>
     <color name="actionsheet_bg_cancel">#FFF</color>
     <color name="actionsheet_bg_tint_pressed">#18000000</color>

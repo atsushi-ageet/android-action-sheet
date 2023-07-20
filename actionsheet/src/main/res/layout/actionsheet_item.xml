@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/actionsheet_item_height"
     android:textSize="@dimen/actionsheet_item_text_size"
-    android:textColor="@color/actionsheet_text_color"
+    android:textColor="@color/actionsheet_action_text_color"
     android:gravity="center"
     android:textAlignment="center"
     tools:text="Item" />
