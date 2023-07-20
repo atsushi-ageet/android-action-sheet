@@ -2,13 +2,13 @@ package com.ageet.actionsheet
 
 import android.app.Dialog
 import android.os.Bundle
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
-class ActionSheetDialogFragment : BottomSheetDialogFragment() {
+class ActionSheetDialogFragment : DialogFragment() {
     var titleText: String by stringArgument()
     var cancelText: String by stringArgument()
     var items: List<String> by stringListArgument()

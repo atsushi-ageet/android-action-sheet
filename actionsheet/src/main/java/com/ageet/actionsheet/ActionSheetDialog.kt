@@ -2,13 +2,14 @@ package com.ageet.actionsheet
 
 import android.content.Context
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.TextView
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
+import androidx.appcompat.app.AlertDialog
 
 class ActionSheetDialog(
     context: Context,
@@ -16,7 +17,7 @@ class ActionSheetDialog(
     private val cancelText: String = "",
     private val items: List<String> = emptyList(),
     private var onItemClickListener: OnItemClickListener? = null,
-) : BottomSheetDialog(context, R.style.actionsheet_ThemeOverlay_App_BottomSheetDialog) {
+) : AlertDialog(context, R.style.actionsheet_ThemeOverlay_App_BottomSheetDialog) {
     fun interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
@@ -61,11 +62,10 @@ class ActionSheetDialog(
             dismiss()
         }
         window?.attributes?.apply {
+            width = WindowManager.LayoutParams.MATCH_PARENT
+            height = WindowManager.LayoutParams.WRAP_CONTENT
+            gravity = Gravity.BOTTOM
             dimAmount = 0.5f
-        }
-        behavior.apply {
-            isDraggable = false
-            setState(BottomSheetBehavior.STATE_EXPANDED)
         }
     }
 
