@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:overScrollMode="always"
             android:divider="@drawable/actionsheet_divider"
-            android:listSelector="@android:color/transparent" />
+            android:listSelector="@drawable/actionsheet_list_selector" />
     </LinearLayout>
 
     <TextView

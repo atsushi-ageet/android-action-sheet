@@ -22,7 +22,8 @@ class ActionSheetDialog(
         fun onItemClick(position: Int)
     }
 
-    private val view: View by lazy { findViewById(R.id.actionsheet_content)!! }
+    private val view: ViewGroup by lazy { findViewById(R.id.actionsheet_content)!! }
+    private val itemsContainer: ViewGroup by lazy { view.findViewById(R.id.actionsheet_items_container) }
     private val title: TextView by lazy { view.findViewById(R.id.actionsheet_title) }
     private val titleDivider: View by lazy { view.findViewById(R.id.actionsheet_title_divider) }
     private val cancel: TextView by lazy { view.findViewById(R.id.actionsheet_cancel) }
@@ -31,6 +32,7 @@ class ActionSheetDialog(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.actionsheet_content)
+        itemsContainer.clipToOutline = true
         if (titleText.isEmpty()) {
             title.visibility = View.GONE
             titleDivider.visibility = View.GONE
@@ -45,18 +47,7 @@ class ActionSheetDialog(
                 dismiss()
             }
         }
-        list.adapter = object : ArrayAdapter<String>(view.context, R.layout.actionsheet_item, R.id.text, items) {
-            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-                return super.getView(position, convertView, parent).apply {
-                    val backgroundId = when {
-                        position == 0 && titleText.isEmpty() -> R.drawable.actionsheet_bg_item_first
-                        position == items.lastIndex -> R.drawable.actionsheet_bg_item_last
-                        else -> R.drawable.actionsheet_bg_item
-                    }
-                    setBackgroundResource(backgroundId)
-                }
-            }
-        }
+        list.adapter = ArrayAdapter(view.context, R.layout.actionsheet_item, R.id.text, items)
         list.setOnItemClickListener { _, _, position, _ ->
             onItemClickListener?.onItemClick(position)
             dismiss()
