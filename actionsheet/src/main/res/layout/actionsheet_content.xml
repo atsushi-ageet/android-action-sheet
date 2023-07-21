@@ -54,6 +54,7 @@
         android:backgroundTint="@color/actionsheet_bg_tint"
         android:textSize="@dimen/actionsheet_item_text_size"
         android:textColor="@color/actionsheet_action_text_color"
+        android:textStyle="bold"
         android:gravity="center"
         android:textAlignment="center"
         tools:text="Cancel" />
