@@ -24,9 +24,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         actionSheetButton.setOnClickListener {
             ActionSheetDialog(
                 context = this,
-                titleText = "Title",
-                messageText = "Message",
-                cancelText = "Cancel",
+                title = "Title",
+                message = "Message",
+                cancel = "Cancel",
                 items = dummy,
                 onItemClickListener = onItemClickListener,
             ).show()
@@ -34,9 +34,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val actionSheetFragmentButton = findViewById<Button>(R.id.action_sheet_fragment_button)
         actionSheetFragmentButton.setOnClickListener {
             ActionSheetDialogFragment().apply {
-                titleText = "Title"
-                messageText = "Message"
-                cancelText = "Cancel"
+                title = "Title"
+                message = "Message"
+                cancel = "Cancel"
                 items = dummy
                 setOnItemClickListener(onItemClickListener)
             }.show(supportFragmentManager, FRAGMENT_TAG)

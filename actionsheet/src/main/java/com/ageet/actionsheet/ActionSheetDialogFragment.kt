@@ -9,9 +9,9 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 class ActionSheetDialogFragment : DialogFragment() {
-    var titleText: String by stringArgument()
-    var messageText: String by stringArgument()
-    var cancelText: String by stringArgument()
+    var title: String by stringArgument()
+    var message: String by stringArgument()
+    var cancel: String by stringArgument()
     var items: List<String> by stringListArgument()
 
     init {
@@ -21,9 +21,9 @@ class ActionSheetDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return ActionSheetDialog(
             context = requireContext(),
-            titleText = titleText,
-            messageText = messageText,
-            cancelText = cancelText,
+            title = title,
+            message = message,
+            cancel = cancel,
             items = items,
         ).apply {
             setOnItemClickListener(onItemClickListener)
