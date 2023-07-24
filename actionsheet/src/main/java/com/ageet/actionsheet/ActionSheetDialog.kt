@@ -13,8 +13,9 @@ import androidx.appcompat.app.AlertDialog
 
 class ActionSheetDialog(
     context: Context,
-    private val titleText: String = "",
-    private val cancelText: String = "",
+    private val titleText: String? = null,
+    private val messageText: String? = null,
+    private val cancelText: String? = null,
     private val items: List<String> = emptyList(),
     private var onItemClickListener: OnItemClickListener? = null,
 ) : AlertDialog(context, R.style.actionsheet_ThemeOverlay_App_BottomSheetDialog) {
@@ -25,6 +26,7 @@ class ActionSheetDialog(
     private val view: ViewGroup by lazy { findViewById(R.id.actionsheet_content)!! }
     private val itemsContainer: ViewGroup by lazy { view.findViewById(R.id.actionsheet_items_container) }
     private val title: TextView by lazy { view.findViewById(R.id.actionsheet_title) }
+    private val message: TextView by lazy { view.findViewById(R.id.actionsheet_message) }
     private val titleDivider: View by lazy { view.findViewById(R.id.actionsheet_title_divider) }
     private val cancel: TextView by lazy { view.findViewById(R.id.actionsheet_cancel) }
     private val list: ListView by lazy { view.findViewById(R.id.actionsheet_list) }
@@ -33,16 +35,21 @@ class ActionSheetDialog(
         super.onCreate(savedInstanceState)
         setContentView(R.layout.actionsheet_content)
         itemsContainer.clipToOutline = true
-        if (titleText.isEmpty()) {
+        title.text = titleText.orEmpty()
+        if (titleText == null) {
             title.visibility = View.GONE
-            titleDivider.visibility = View.GONE
-        } else {
-            title.text = titleText
         }
-        if (cancelText.isEmpty()) {
+        message.text = messageText.orEmpty()
+        if (messageText == null) {
+            message.visibility = View.GONE
+        }
+        if (titleText == null && messageText == null) {
+            titleDivider.visibility = View.GONE
+        }
+        cancel.text = cancelText.orEmpty()
+        if (cancelText == null) {
             cancel.visibility = View.GONE
         } else {
-            cancel.text = cancelText
             cancel.setOnClickListener {
                 dismiss()
             }

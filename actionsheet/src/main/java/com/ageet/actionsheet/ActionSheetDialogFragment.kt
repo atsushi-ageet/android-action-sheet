@@ -10,6 +10,7 @@ import kotlin.reflect.KProperty
 
 class ActionSheetDialogFragment : DialogFragment() {
     var titleText: String by stringArgument()
+    var messageText: String by stringArgument()
     var cancelText: String by stringArgument()
     var items: List<String> by stringListArgument()
 
@@ -21,6 +22,7 @@ class ActionSheetDialogFragment : DialogFragment() {
         return ActionSheetDialog(
             context = requireContext(),
             titleText = titleText,
+            messageText = messageText,
             cancelText = cancelText,
             items = items,
         ).apply {

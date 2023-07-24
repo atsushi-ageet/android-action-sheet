@@ -24,16 +24,28 @@
         <TextView
             android:id="@+id/actionsheet_title"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/actionsheet_title_height"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:textSize="@dimen/actionsheet_title_text_size"
-            android:gravity="center"
             android:textAlignment="center"
-            tools:text="Menu" />
+            android:textStyle="bold"
+            tools:text="Title" />
+
+        <TextView
+            android:id="@+id/actionsheet_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:textSize="@dimen/actionsheet_message_text_size"
+            android:textAlignment="center"
+            tools:text="Message" />
 
         <View
             android:id="@+id/actionsheet_title_divider"
             android:layout_width="match_parent"
             android:layout_height="1px"
+            android:layout_marginTop="8dp"
             android:background="@drawable/actionsheet_divider" />
 
         <ListView
